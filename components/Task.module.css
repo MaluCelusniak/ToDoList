@@ -1,0 +1,89 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 1.6rem;
+  margin-bottom: 1.2rem;
+  gap: 1.2rem;
+  
+}
+
+.trash, label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trash {
+  transition: all .3s;
+}
+
+.trash:hover {
+  color: var(--red-500);
+}
+
+.checked:hover {
+  color: var(--purple);
+}
+
+.task input[type='checkbox'] {
+  display: none;
+}
+
+.done .checked {
+  transition: all .3s;
+  color: var(--purple-dark);
+  transform: scale(0) rotateZ(180deg);
+}
+
+.undone .checked {
+   position: absolute;
+  transform: scale(1) rotateZ(0deg);
+}
+
+.task label::before {
+  content: '';
+  border: 2px solid var(--blue);
+  height: 1.6rem;
+  width: 1.6rem;
+  position: absolute;
+  border-radius: 50%;
+  left: -34px;
+  top: -3px;
+  transition: all .2s;
+}
+
+.task label:hover::before {
+  border-color: var(--blue-dark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: hsla(202, 69%, 37%, .2) ;
+}
+
+.checked + input[type="checkbox"]:checked  {
+  visibility: visible;
+  opacity: 1;
+ 
+}
+
+.done label::before {
+  display: none;
+}
+
+.done{
+  text-decoration-line: line-through;
+  color: var(--gray-300);
+}
+.undone{
+  text-decoration-line: none;
+  color: var(--gray-100);
+}
+
+.task label {
+  display: block;
+  font-size: 1.4rem;
+  position: relative;
+}
+
